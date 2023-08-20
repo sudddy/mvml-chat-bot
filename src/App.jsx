@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div class="flex h-screen flex-row">
-      <div class="w-full flex items-center justify-center border border-black">
+      <div class="w-full flex items-center justify-center">
         <img src={MVML} alt="MVML logo" width={200} height={200} class="animate-pulse" />
       </div>
       <div class="absolute  bottom-0 right-0">
