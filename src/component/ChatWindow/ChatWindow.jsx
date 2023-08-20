@@ -4,6 +4,7 @@ import CloseIcon from "../../assets/close.png"
 import Send from "../../assets/send.png"
 import ChatContent from "./ChatContent";
 import useHuggingFace from "../../hooks/useHuggingFace";
+import NotificationAudio from "../../assets/notification.mp3"
 
 const ChatWindow = ({ isChatOn, setChat }) => {
 
@@ -15,11 +16,10 @@ const ChatWindow = ({ isChatOn, setChat }) => {
     const [currentMessage, setCurrentMessage] = useState('');
     const [loading, setLoader] = useState(false);
     const  huggingFace  = useHuggingFace()
+    const notification = new Audio(NotificationAudio);
     
    
     const onSendMessage = async () => {
-        setLoader(true);
-        
         try {
             if(currentMessage !== '' && currentMessage !== undefined) {
                 setMessages((prev) =>  [...prev, {
@@ -27,6 +27,8 @@ const ChatWindow = ({ isChatOn, setChat }) => {
                     text: currentMessage,
                     sentAt: new Date().getTime()
                 }]);
+                
+                setLoader(true);
                 
                 const response = await huggingFace.getMessagesFromGPT2(currentMessage); 
     
@@ -37,7 +39,9 @@ const ChatWindow = ({ isChatOn, setChat }) => {
                     text: response[0].generated_text,
                     sentAt: new Date().getTime()
                 }]);
-    
+
+                notification.play();
+
                 setCurrentMessage('');
             } 
         }  catch(e) {
@@ -52,7 +56,7 @@ const ChatWindow = ({ isChatOn, setChat }) => {
 
     return (
         <Fragment>
-            <div class="flex flex-col justify-between h-[550px] w-[280px] md:w-[400px] absolute border  right-2 md:right-10  z-50 animate-moving-line rounded-l bg-[#FFFFFF]">
+            <div class="flex flex-col justify-between h-[550px] w-[340px]  md:w-[400px] absolute border  right-2 md:right-10  z-50 animate-moving-line rounded-l bg-[#FFFFFF]">
                 <div class="flex h-12 bg-custom-color items-center w-full justify-between">
                     <img src={MVML} width={20} height={20} alt="metaverse mind lab" class="mx-4" />
                     <img src={CloseIcon} width={20} height={20} alt="metaverse mind lab" class="mx-4" onClick={() => setChat(false)} />

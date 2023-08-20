@@ -14,24 +14,23 @@ const ChatContent = ({ messages,loading }) => {
 
 
   return (
-    <div class="h-[410px] px-6 py-1 overflow-auto container-snap" ref={ref}>
+    <div class="h-[410px] px-6 py-1 overflow-y-auto overflow-x-hidden  container-snap" ref={ref}>
       {messages.map((message, index) => (
         <div
           key={index}
-          className={`py-2 flex flex-row w-full ${
+          className={`py-2 flex flex-row ${
             message.isChatOwner ? "justify-end" : "justify-start"
           }`}
         >
-          <div className={`${message.isChatOwner ? "order-2" : "order-1"}`}>
+          <div className={`${message.isChatOwner ? "order-2" : "order-1"} w-[24px] `}>
             <img src={Avatar} width={24} height={24} alt="user avatar"/>
           </div>
           <div
-            className={`px-2 w-fit py-3 flex flex-col bg-[#9B4BBE] rounded-lg text-white ${
+            className={`px-2 w-fit py-3 flex bg-[#9B4BBE] rounded-xl text-white  ${
               message.isChatOwner ? "order-1 mr-2" : "order-2 ml-2"
             }`}
           >
-
-            <span className="text-sm text-white text-bold">{message.text}</span>
+            <span className="text-sm text-white text-bold text-ellipsis w-48  md:w-72 break-words">{message.text}</span>
           </div>
         </div>
       ))}
