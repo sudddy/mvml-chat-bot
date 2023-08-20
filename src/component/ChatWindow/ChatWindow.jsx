@@ -10,7 +10,7 @@ const ChatWindow = ({ isChatOn, setChat }) => {
 
 
     const [messages, setMessages] = useState([{ 
-        text: 'Welcome to Metaverse Mind labs. How can i help you today?',
+        text: 'Welcome to Metaverse Mind Labs. How can i help you today?',
         sentAt: new Date().getTime()
     }]);
     const [currentMessage, setCurrentMessage] = useState('');
