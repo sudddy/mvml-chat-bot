@@ -5,8 +5,6 @@ import ChatWindow from "./component/ChatWindow/ChatWindow"
 import CloseIcon from "./assets/close-fill.png"
 
 
-
-
 function App() {
   const [isChatOn, setChat] = useState(false);
 
