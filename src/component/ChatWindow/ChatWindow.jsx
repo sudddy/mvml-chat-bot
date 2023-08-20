@@ -63,7 +63,7 @@ const ChatWindow = ({ isChatOn, setChat }) => {
                 </div>
                 <ChatContent messages={messages} loading={loading} />
                 <div class="relative border-t-[1px] text-base">
-                    <textarea value={currentMessage} onChange={(e)=> { setCurrentMessage(e.target.value) }} class="my-2 text-sm w-full pl-3 pr-12 text-base focus:outline-none resize-none border border-black" rows="3" type="text"  placeholder="Ask anything to Metaverse Mind Lab " />
+                    <textarea value={currentMessage} onChange={(e)=> { setCurrentMessage(e.target.value) }} class="my-2 text-sm w-full pl-3 pr-12 text-base focus:outline-none resize-none" rows="3" type="text"  placeholder="Ask anything to Metaverse Mind Lab " />
                     <img src={Send} width={20} height={20} alt="metaverse mind lab" class="absolute  bottom-8 right-4" 
                     onClick={onSendMessage}/>
                 </div>
