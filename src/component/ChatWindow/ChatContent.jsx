@@ -22,13 +22,13 @@ const ChatContent = ({ messages,loading }) => {
             message.isChatOwner ? "justify-end" : "justify-start"
           }`}
         >
-          <div className={`${message.isChatOwner ? "order-2" : "order-1"} w-[24px] `}>
+          <div className={`${message.isChatOwner ? "order-2" : "order-1"} w-[24px]`}>
             <img src={Avatar} width={24} height={24} alt="user avatar"/>
           </div>
           <div
-            className={`px-2 w-fit py-3 flex bg-[#9B4BBE] rounded-xl text-white  ${
-              message.isChatOwner ? "order-1 mr-2" : "order-2 ml-2"
-            }`}
+            className={`px-2 w-fit py-3 flex  rounded-xl text-white  ${
+              message.isChatOwner ? "order-1 mr-2 bg-[#C15DEB]" : "order-2 ml-2  bg-[#9B4ABE]"
+            } `}
           >
             <span className="text-sm text-white text-bold text-ellipsis w-48  md:w-72 break-words">{message.text}</span>
           </div>
