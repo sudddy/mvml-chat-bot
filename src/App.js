@@ -3,7 +3,8 @@ import ChatBot from "./assets/chatbot.png"
 import React, { useState } from "react";
 import ChatWindow from "./component/ChatWindow/ChatWindow"
 import CloseIcon from "./assets/close-fill.png"
-import '@aws-amplify/ui-react/styles.css';
+
+
 
 
 function App() {
