@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useRef } from "react";
+import React, { Fragment, useState } from "react";
 import MVML from "../../assets/chatlogo.png"
 import CloseIcon from "../../assets/close.png"
 import Send from "../../assets/send.png"
